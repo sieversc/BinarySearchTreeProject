@@ -2,7 +2,7 @@
 #define _BSTree_H
 
 /*------------------------------------------------------------------
-Written by Chris Sievers
+Written by Chris Sievers 
 ------------------------------------------------------------------*/
 
 #include <string>
