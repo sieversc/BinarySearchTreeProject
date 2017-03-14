@@ -29,7 +29,7 @@ Preconditions: none.
 Postconditions: BSTreeSize = 0; root = NULL
 ------------------------------------------------------------------*/
 BSTree::~BSTree () {
-    
+
     Clear(root);
 }
 
@@ -92,6 +92,28 @@ void BSTree::PrintInOrder(BNode *node){
  
      /* now recur on right child */
      PrintInOrder(node->right);
+}
+
+/*------------------------------------------------------------------
+searches the tree for any last name
+
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+void BSTree::Find(BNode* startNode, string target, BNode** location){
+    if(startNode == NULL){
+        return;
+    }
+    if(startNode->LastName == target){
+        location = &startNode;
+        return;
+    }
+    if(startNode->left != NULL){
+        Find(startNode->left, target, location);
+    }
+    if(startNode->right != NULL){
+        Find(startNode->right, target, location);
+    }
 }
 
 

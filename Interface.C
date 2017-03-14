@@ -28,9 +28,16 @@ int main(){
 	list -> Insert(list->root, "z");
 
 
-	cout << list -> Count() << endl;
+	BNode *location = new BNode();
+	BSTree *temp = new BSTree();
 
-	list -> PrintInOrder(list->root);
+	list->Find(list->root, "a", &location);
+	temp-> Insert(temp->root, location->LastName);
+
+	temp->PrintInOrder(temp->root);
+	//cout << list -> Count() << endl;
+
+	//list -> PrintInOrder(list->root);
 
 
 

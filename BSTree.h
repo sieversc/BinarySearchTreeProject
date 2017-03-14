@@ -20,6 +20,10 @@ class BNode {
         BNode *left;
         BNode *right;
 
+        BNode();
+
+        ~BNode();
+        sType GetLastName();
     private:
 };
 
@@ -65,6 +69,15 @@ class BSTree {
     Postconditions: none
     ------------------------------------------------------------------*/
     int Count();
+
+
+    /*------------------------------------------------------------------
+    searches the tree for any last name
+
+    Preconditions: none.
+    Postconditions: none
+    ------------------------------------------------------------------*/
+    void Find(BNode* startNode, string target, BNode** location);
 
 								   
   private:
