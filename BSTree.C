@@ -9,6 +9,8 @@
 
 
 // ************************** Public Functions *********************
+
+
 /*------------------------------------------------------------------
 The default BSTree constructor.
 
@@ -20,7 +22,6 @@ BSTree::BSTree () {
     root = NULL;
 }
 
-
 /*------------------------------------------------------------------
 The default BSTree destructor.
 
@@ -28,6 +29,7 @@ Preconditions: none.
 Postconditions: BSTreeSize = 0; root = NULL
 ------------------------------------------------------------------*/
 BSTree::~BSTree () {
+    
     Clear(root);
 }
 
@@ -100,6 +102,7 @@ Preconditions: none.
 Postconditions: none
 ------------------------------------------------------------------*/
 int BSTree::Count(){
+
     return(BSTreeSize);
 }
 
@@ -117,4 +120,57 @@ void BSTree::Clear(BNode *n){
     }
     delete n;
     n = NULL;
+}
+
+/*------------------------------------------------------------------
+pass in a node and this function will find the smallest node greater than it
+
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+BNode* BSTree::Successor(BNode *node){
+
+    return(FindMin(node)); 
+}
+
+/*------------------------------------------------------------------
+pass in a node and this function will find the greatest node smaller than it
+
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+BNode* BSTree::Predecessor(BNode *node){
+
+    return(FindMax(node));
+}
+
+/*------------------------------------------------------------------
+finds the smallest element in the tree
+
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+BNode* BSTree::FindMin(BNode *node){
+    if(node->left == NULL){
+        return(node);
+    }
+    else{
+        FindMin(node->left);
+    }
+}
+
+
+/*------------------------------------------------------------------
+finds the largest element in the tree
+
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+BNode* BSTree::FindMax(BNode *node){
+    if(node->right == NULL){
+        return(node);
+    }
+    else{
+        FindMin(node->right);
+    }
 }

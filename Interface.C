@@ -13,20 +13,19 @@ int main(){
 
 	BSTree *list = new BSTree();
 
-	list -> Insert(list->root, "n");
-
-	list -> Insert(list->root, "f");
-
-	list -> Insert(list->root, "t");
+	list -> Insert(list->root, "c");
 
 	list -> Insert(list->root, "a");
 
-	list -> Insert(list->root, "h");
+	list -> Insert(list->root, "b");
 
-	list -> Insert(list->root, "p");
+	list -> Insert(list->root, "e");
+
+	list -> Insert(list->root, "d");
+
+	list -> Insert(list->root, "f");
 
 	list -> Insert(list->root, "z");
-
 
 
 	cout << list -> Count() << endl;

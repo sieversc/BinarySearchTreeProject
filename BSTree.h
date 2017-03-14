@@ -75,7 +75,30 @@ class BSTree {
 
     //helper functions
 
+
+    /*------------------------------------------------------------------
+    clears the tree of all nodes
+
+    Preconditions: none.
+    Postconditions: deletes all nodes in tree. BSTreeSize = 0
+    ------------------------------------------------------------------*/
     void Clear(BNode *n);
+
+    /*------------------------------------------------------------------
+    pass in a node and this function will find the smallest node greater than it
+
+    Preconditions: none.
+    Postconditions: none
+    ------------------------------------------------------------------*/
+    BNode* Successor(BNode *node);
+
+    BNode* Predecessor(BNode *node);
+
+    BNode* FindMax(BNode *node);
+
+    BNode* FindMin(BNode *node);
+
+
 };
 
 #endif
