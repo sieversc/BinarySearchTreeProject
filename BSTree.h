@@ -49,6 +49,23 @@ class BSTree {
     --------------------------------------------------------------*/
     void Insert(BNode *node, sType name);   
 
+    /*------------------------------------------------------------------
+    Prints the BSTree in order. least to greatest
+
+    Preconditions: none.
+    Postconditions: none
+    ------------------------------------------------------------------*/
+    void PrintInOrder(BNode *node);
+
+
+    /*------------------------------------------------------------------
+    Returns an integer equal to the number of nodes in the tree
+
+    Preconditions: none.
+    Postconditions: none
+    ------------------------------------------------------------------*/
+    int Count();
+
 								   
   private:
     // Object instance data

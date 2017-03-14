@@ -31,6 +31,12 @@ BSTree::~BSTree () {
     Clear(root);
 }
 
+/*------------------------------------------------------------------
+adds a new element to the BSTree
+
+Preconditions: none.
+Postconditions: BSTreeSize++
+------------------------------------------------------------------*/
 void BSTree::Insert(BNode *node, sType name){
 
     BNode *newNode = new BNode;
@@ -38,7 +44,8 @@ void BSTree::Insert(BNode *node, sType name){
 
     //if tree is empty
     if(root == NULL){
-        root -> LastName = name;
+        root = newNode;
+        BSTreeSize++;
         return;
     }
 
@@ -48,6 +55,7 @@ void BSTree::Insert(BNode *node, sType name){
         }
         else{
             node->left = newNode;
+            BSTreeSize++;
             return;
         }
     }
@@ -57,10 +65,43 @@ void BSTree::Insert(BNode *node, sType name){
         }
         else{
             node->right = newNode;
+            BSTreeSize++;
         }
     }
 }
 
+/*------------------------------------------------------------------
+Prints the BSTree in order. least to greatest
+
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+void BSTree::PrintInOrder(BNode *node){
+    if (node == NULL){
+        //cout << "Tree is Empty" << endl;
+        return;
+    }
+ 
+     /* first recur on left child */
+     PrintInOrder(node->left);
+ 
+     /* then print the data of node */
+     cout << node->LastName << endl;  
+ 
+     /* now recur on right child */
+     PrintInOrder(node->right);
+}
+
+
+/*------------------------------------------------------------------
+Returns an integer equal to the number of nodes in the tree
+
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+int BSTree::Count(){
+    return(BSTreeSize);
+}
 
 /********************************************************************
 
