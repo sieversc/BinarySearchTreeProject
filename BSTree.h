@@ -13,11 +13,14 @@ using namespace std;
 typedef string sType;
 
 // Definition of a BSTree node.
-struct BNode {
-    sType LastName;
-    sType FirstName;
-    BNode *left;
-    BNode *right;
+class BNode {
+    public:
+        sType LastName;
+        sType FirstName;
+        BNode *left;
+        BNode *right;
+
+    private:
 };
 
 
@@ -42,7 +45,7 @@ class BSTree {
     preconditions: none
     Postconditions: BSTreeSise++
     --------------------------------------------------------------*/
-    AddPerson(sType LastName);   
+    void Insert(sType name);   
 
 								   
   private:

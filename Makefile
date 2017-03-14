@@ -1,5 +1,5 @@
 SRCS = BSTree.C Interface.C
-EXEC = BSTree
+EXEC = bst
 
 OBJS = $(SRCS:.C=.o)
 

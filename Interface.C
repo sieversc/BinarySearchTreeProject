@@ -9,5 +9,13 @@ using namespace std;
 
 int main(){
 
+	sType response;
+
+	BSTree *list = new BSTree();
+
+	cin >> response;
+
+	list -> Insert(response);
+
 	return(0);
 }

@@ -31,7 +31,11 @@ BSTree::~BSTree () {
     Clear(root);
 }
 
-void BSTree::AddPerson(sType LastName){
+void BSTree::Insert(sType name){
+    if(root == NULL){
+        root -> LastName = name;
+        return;
+    }
 
 }
 
