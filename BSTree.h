@@ -27,6 +27,8 @@ class BNode {
 class BSTree {
     
   public:
+
+    BNode *root;
     // Constructors & destructors
     /*--------------------------------------------------------------
     The default BSTree constructor provides the caller with an 
@@ -45,12 +47,12 @@ class BSTree {
     preconditions: none
     Postconditions: BSTreeSise++
     --------------------------------------------------------------*/
-    void Insert(sType name);   
+    void Insert(BNode *node, sType name);   
 
 								   
   private:
     // Object instance data
-    BNode *root;
+
     int BSTreeSize;
 
 

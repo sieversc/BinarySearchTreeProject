@@ -31,12 +31,34 @@ BSTree::~BSTree () {
     Clear(root);
 }
 
-void BSTree::Insert(sType name){
+void BSTree::Insert(BNode *node, sType name){
+
+    BNode *newNode = new BNode;
+    newNode->LastName = name;
+
+    //if tree is empty
     if(root == NULL){
         root -> LastName = name;
         return;
     }
 
+    if(node->LastName > name){
+        if(node->left != NULL){
+            Insert(node->left, name);
+        }
+        else{
+            node->left = newNode;
+            return;
+        }
+    }
+    else{
+        if(node->right != NULL){
+            Insert(node->right, name);
+        }
+        else{
+            node->right = newNode;
+        }
+    }
 }
 
 
