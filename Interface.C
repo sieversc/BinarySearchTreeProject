@@ -15,6 +15,7 @@ int main(){
 
 	list -> Insert(list->root, "c");
 
+
 	list -> Insert(list->root, "a");
 
 	list -> Insert(list->root, "b");
@@ -27,20 +28,7 @@ int main(){
 
 	list -> Insert(list->root, "z");
 
-
-	BNode *location = new BNode();
-	BSTree *temp = new BSTree();
-
-	list->Find(list->root, "a", &location);
-	temp-> Insert(temp->root, location->LastName);
-
-	temp->PrintInOrder(temp->root);
-	//cout << list -> Count() << endl;
-
-	//list -> PrintInOrder(list->root);
-
-
-
+	cout << list ->Search("q") << endl;
 
 
 /*

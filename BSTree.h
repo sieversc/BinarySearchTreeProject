@@ -23,7 +23,12 @@ class BNode {
         BNode();
 
         ~BNode();
+
         sType GetLastName();
+
+        void PrintName();
+
+        bool Search(sType target);
     private:
 };
 
@@ -70,14 +75,13 @@ class BSTree {
     ------------------------------------------------------------------*/
     int Count();
 
-
     /*------------------------------------------------------------------
     searches the tree for any last name
 
     Preconditions: none.
     Postconditions: none
     ------------------------------------------------------------------*/
-    void Find(BNode* startNode, string target, BNode** location);
+    bool Search(sType value);
 
 								   
   private:

@@ -94,27 +94,6 @@ void BSTree::PrintInOrder(BNode *node){
      PrintInOrder(node->right);
 }
 
-/*------------------------------------------------------------------
-searches the tree for any last name
-
-Preconditions: none.
-Postconditions: none
-------------------------------------------------------------------*/
-void BSTree::Find(BNode* startNode, string target, BNode** location){
-    if(startNode == NULL){
-        return;
-    }
-    if(startNode->LastName == target){
-        location = &startNode;
-        return;
-    }
-    if(startNode->left != NULL){
-        Find(startNode->left, target, location);
-    }
-    if(startNode->right != NULL){
-        Find(startNode->right, target, location);
-    }
-}
 
 
 /*------------------------------------------------------------------
@@ -181,7 +160,20 @@ BNode* BSTree::FindMin(BNode *node){
     }
 }
 
+/*------------------------------------------------------------------
+finds a given element in the tree
 
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+bool BSTree::Search(sType value){
+      if (root == NULL){
+            return false;
+      }
+      else
+            return (root->Search(value));
+
+}
 /*------------------------------------------------------------------
 finds the largest element in the tree
 
