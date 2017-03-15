@@ -107,10 +107,39 @@ int BSTree::Count(){
     return(BSTreeSize);
 }
 
+/*------------------------------------------------------------------
+Non-Lazy delete    -   based on 3 base cases
+    1. node passed in is a leaf
+    2. node passed in has only one child
+    3. node passed in has 2 children
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+void BSTree::Delete(BNode *root, sType target){
+
+    if(root == NULL){
+        return;
+    }
+    else{
+        
+    }
+}
+
+
+
+
+
+
+
+
+
 /********************************************************************
 
-Private Functions
+----------------------Private Functions-----------------------------
+
 ********************************************************************/
+
+
 
 void BSTree::Clear(BNode *n){
     if(n -> left != NULL){

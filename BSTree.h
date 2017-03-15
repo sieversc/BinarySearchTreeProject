@@ -24,11 +24,16 @@ class BNode {
 
         ~BNode();
 
-        sType GetLastName();
-
-        void PrintName();
-
         bool Search(sType target);
+
+
+    /**************************************
+    methods scheduled for death
+    ****************************************/
+        sType GetLastName();    //returns lastName field
+
+        void PrintName();       //prints lastname
+
     private:
 };
 
@@ -82,6 +87,16 @@ class BSTree {
     Postconditions: none
     ------------------------------------------------------------------*/
     bool Search(sType value);
+
+    /*------------------------------------------------------------------
+    Non-Lazy deletes    -   based on 3 base cases
+        1. node passed in is a leaf
+        2. node passed in has only one child
+        3. node passed in has 2 children
+    Preconditions: none.
+    Postconditions: none
+    ------------------------------------------------------------------*/
+    void Delete(BNode *root, sType target);
 
 								   
   private:
