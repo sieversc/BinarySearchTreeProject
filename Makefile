@@ -1,4 +1,4 @@
-SRCS = BSTree.C Interface.C BNode.C
+SRCS = BSTree.C Interface.C BNode.C SurvivorRegistry.C
 EXEC = bst
 
 OBJS = $(SRCS:.C=.o)

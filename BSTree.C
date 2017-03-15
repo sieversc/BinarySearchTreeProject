@@ -39,7 +39,7 @@ adds a new element to the BSTree
 Preconditions: none.
 Postconditions: BSTreeSize++
 ------------------------------------------------------------------*/
-void BSTree::Insert(BNode *node, sType name){
+void BSTree::Insert(BNode *node, string name){
 
     BNode *newNode = new BNode;
     newNode->LastName = name;
@@ -115,7 +115,7 @@ Non-Lazy delete    -   based on 3 base cases
 Preconditions: none.
 Postconditions: none
 ------------------------------------------------------------------*/
-void BSTree::Delete(BNode *root, sType target){
+void BSTree::Delete(BNode *root, string target){
 
     if(root == NULL){
         return;
@@ -131,7 +131,7 @@ finds a given element in the tree
 Preconditions: none.
 Postconditions: none
 ------------------------------------------------------------------*/
-bool BSTree::Search(sType value){
+bool BSTree::Search(string value){
       if (root == NULL){
             return false;
       }

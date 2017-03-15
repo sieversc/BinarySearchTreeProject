@@ -7,16 +7,14 @@ Written by Chris Sievers
 
 #include <string>
 #include <iostream>
+#include <set>
 using namespace std;
-
-// Definition of what the BSTree can store.
-typedef string sType;
 
 // Definition of a BSTree node.
 class BNode {
     public:
-        sType LastName;
-        sType FirstName;
+        string LastName;
+        set<string> FirstName;
         BNode *left;
         BNode *right;
 
@@ -24,37 +22,25 @@ class BNode {
 
         ~BNode();
 
-        bool Search(sType target);
+        bool Search(string target);
 
 
     /**************************************
     ------------------Accessors-------------
     ****************************************/
-        sType GetLastName();    //returns lastName field
+        string GetLastName();    //returns lastName field
 
         void PrintName();       //prints lastname
 
     private:
 };
 
-//SurvivorRegistry description
-class SurvivorRegistry{
-
-    void Add(sType Name);
-    void Remove(sType Name);
-    void PrintSurvivors();
-    
-
-};
 
 class BSTree {
     
   public:
 
     BNode *root;
-
-
-
 
 
     // Constructors & destructors
@@ -70,9 +56,6 @@ class BSTree {
     	allocated memory (i.e. BNodes).
     --------------------------------------------------------------*/
     ~BSTree ();
-
-
-
 
 
 //--------------------------accessor methods------------------------------
@@ -102,7 +85,7 @@ class BSTree {
     Preconditions: pass in last name
     Postconditions: returns true or false whether last name is in tree
     ------------------------------------------------------------------*/
-    bool Search(sType value);
+    bool Search(string value);
 
 
 
@@ -121,14 +104,14 @@ class BSTree {
     Preconditions: none.
     Postconditions: none
     ------------------------------------------------------------------*/
-    void Delete(BNode *root, sType target);
+    void Delete(BNode *root, string target);
 
     /*--------------------------------------------------------------
     Adds a single person to the BSTree
     preconditions: none
     Postconditions: BSTreeSise++
     --------------------------------------------------------------*/
-    void Insert(BNode *node, sType name);   
+    void Insert(BNode *node, string name);   
 								   
   private:
     // Object instance data
@@ -160,8 +143,25 @@ class BSTree {
     BNode* FindMax(BNode *node);
 
     BNode* FindMin(BNode *node);
+};
 
 
+//SurvivorRegistry description
+class SurvivorRegistry{
+
+	public:
+
+		BSTree *survivors;
+
+	    SurvivorRegistry();
+
+	    ~SurvivorRegistry();
+
+		void Add(string Name);
+	    void Remove(string Name);
+	    void PrintSurvivors();
+
+    private:    
 };
 
 #endif

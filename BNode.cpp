@@ -2,30 +2,32 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <set>
 
+using namespace std;
 
 // ************************** Public Functions *********************
 
 
 BNode::BNode(){
-/*
-    sType LastName = NULL;
-    sType FirstName = NULL;
+
+    string LastName = NULL;
+    set<string> FirstName;
     BNode *left = NULL;
     BNode *right = NULL;
-*/
+
 }
 
 BNode::~BNode(){
 	/*
-    sType LastName = NULL;
-    sType FirstName = NULL;
+    string LastName = NULL;
+    string FirstName = NULL;
     BNode *left = NULL;
     BNode *right = NULL;
 */
 }
 
-sType BNode::GetLastName(){
+string BNode::GetLastName(){
 
 	return(LastName);
 
@@ -35,7 +37,7 @@ void BNode::PrintName(){
     cout << LastName << endl;
 }
 
-bool BNode::Search(sType value){
+bool BNode::Search(string value){
 
     if (value == this->LastName){
         return true;
