@@ -28,7 +28,7 @@ class BNode {
 
 
     /**************************************
-    methods scheduled for death
+    ------------------Accessors-------------
     ****************************************/
         sType GetLastName();    //returns lastName field
 
@@ -37,13 +37,28 @@ class BNode {
     private:
 };
 
+//SurvivorRegistry description
+class SurvivorRegistry{
+
+    void Add(sType Name);
+    void Remove(sType Name);
+    void PrintSurvivors();
+    
+
+};
 
 class BSTree {
     
   public:
 
     BNode *root;
+
+
+
+
+
     // Constructors & destructors
+
     /*--------------------------------------------------------------
     The default BSTree constructor provides the caller with an 
     	initially empty BSTree.  (IsEmpty == TRUE).
@@ -55,19 +70,19 @@ class BSTree {
     	allocated memory (i.e. BNodes).
     --------------------------------------------------------------*/
     ~BSTree ();
-    
-    /*--------------------------------------------------------------
-    Adds a single person to the BSTree
-    preconditions: none
-    Postconditions: BSTreeSise++
-    --------------------------------------------------------------*/
-    void Insert(BNode *node, sType name);   
+
+
+
+
+
+//--------------------------accessor methods------------------------------
+
 
     /*------------------------------------------------------------------
     Prints the BSTree in order. least to greatest
 
-    Preconditions: none.
-    Postconditions: none
+    Preconditions: pass in the root node
+    Postconditions: prints the last names of each node in the tree
     ------------------------------------------------------------------*/
     void PrintInOrder(BNode *node);
 
@@ -76,17 +91,27 @@ class BSTree {
     Returns an integer equal to the number of nodes in the tree
 
     Preconditions: none.
-    Postconditions: none
+    Postconditions: returns an integer that represents the number of nodes
+    in the tree
     ------------------------------------------------------------------*/
     int Count();
 
     /*------------------------------------------------------------------
     searches the tree for any last name
 
-    Preconditions: none.
-    Postconditions: none
+    Preconditions: pass in last name
+    Postconditions: returns true or false whether last name is in tree
     ------------------------------------------------------------------*/
     bool Search(sType value);
+
+
+
+
+
+
+
+
+
 
     /*------------------------------------------------------------------
     Non-Lazy deletes    -   based on 3 base cases
@@ -98,6 +123,12 @@ class BSTree {
     ------------------------------------------------------------------*/
     void Delete(BNode *root, sType target);
 
+    /*--------------------------------------------------------------
+    Adds a single person to the BSTree
+    preconditions: none
+    Postconditions: BSTreeSise++
+    --------------------------------------------------------------*/
+    void Insert(BNode *node, sType name);   
 								   
   private:
     // Object instance data

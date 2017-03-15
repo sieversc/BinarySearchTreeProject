@@ -15,7 +15,6 @@ int main(){
 
 	list -> Insert(list->root, "c");
 
-
 	list -> Insert(list->root, "a");
 
 	list -> Insert(list->root, "b");
@@ -28,18 +27,9 @@ int main(){
 
 	list -> Insert(list->root, "z");
 
-	cout << list ->Search("q") << endl;
 
+	cout << list ->Search("a") << endl;
 
-/*
-	sType response;
-
-	BSTree *list = new BSTree();
-
-	cin >> response;
-
-	list -> Insert(list->root, response);
-*/
 	return(0);
 
 }

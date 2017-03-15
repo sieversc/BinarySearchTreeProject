@@ -125,7 +125,20 @@ void BSTree::Delete(BNode *root, sType target){
     }
 }
 
+/*------------------------------------------------------------------
+finds a given element in the tree
 
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
+bool BSTree::Search(sType value){
+      if (root == NULL){
+            return false;
+      }
+      else
+            return (root->Search(value));
+
+}
 
 
 
@@ -189,20 +202,7 @@ BNode* BSTree::FindMin(BNode *node){
     }
 }
 
-/*------------------------------------------------------------------
-finds a given element in the tree
 
-Preconditions: none.
-Postconditions: none
-------------------------------------------------------------------*/
-bool BSTree::Search(sType value){
-      if (root == NULL){
-            return false;
-      }
-      else
-            return (root->Search(value));
-
-}
 /*------------------------------------------------------------------
 finds the largest element in the tree
 
