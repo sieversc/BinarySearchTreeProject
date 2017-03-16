@@ -11,24 +11,44 @@ int MAX = 5;
 
 int main(){
 
-	BSTree *list = new BSTree();
+	SurvivorRegistry *reg = new SurvivorRegistry();
 
-	list -> Insert(list->root, "c");
+	reg -> Add("john");
 
-	list -> Insert(list->root, "a");
+	reg -> Add("apple");
 
-	list -> Insert(list->root, "b");
+	reg -> Add("banana");
 
-	list -> Insert(list->root, "e");
+	reg -> Add("mark");
 
-	list -> Insert(list->root, "d");
+	reg -> Count();
 
-	list -> Insert(list->root, "f");
-
-	list -> Insert(list->root, "z");
+	reg -> PrintSurvivors();
 
 
-	cout << list ->Search("a") << endl;
+	// BSTree *list = new BSTree();
+
+	// list -> Insert(list->root, "c");
+
+	// list -> Insert(list->root, "a");
+
+	// list -> Insert(list->root, "b");
+
+	// list -> Insert(list->root, "e");
+
+	// list -> Insert(list->root, "d");
+
+	// list -> Insert(list->root, "f");
+
+	// list -> Insert(list->root, "z");
+
+	// list -> PrintInOrder(list->root);
+
+	// cout << list ->Search("c") << endl;
+
+	// cout << list->BNodeSearch("z")->LastName << endl;
+
+
 
 	return(0);
 

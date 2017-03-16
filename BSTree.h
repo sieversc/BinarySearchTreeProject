@@ -85,12 +85,18 @@ class BSTree {
     Preconditions: pass in last name
     Postconditions: returns true or false whether last name is in tree
     ------------------------------------------------------------------*/
-    bool Search(string value);
+    bool Search(string target);
 
 
+    /*------------------------------------------------------------------
+    finds a given element in the tree. will return null pointer if element
+    is not in tree
 
-
-
+    Preconditions: pass in a last name.
+    Postconditions: returns pointer to node searched for. may return null
+    if target is not in tree.
+    ------------------------------------------------------------------*/
+    BNode* BNodeSearch(string target);
 
 
 
@@ -160,6 +166,7 @@ class SurvivorRegistry{
 		void Add(string Name);
 	    void Remove(string Name);
 	    void PrintSurvivors();
+        void Count();
 
     private:    
 };

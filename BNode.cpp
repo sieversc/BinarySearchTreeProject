@@ -11,10 +11,7 @@ using namespace std;
 
 BNode::BNode(){
 
-    string LastName = NULL;
-    set<string> FirstName;
-    BNode *left = NULL;
-    BNode *right = NULL;
+
 
 }
 
@@ -42,6 +39,8 @@ bool BNode::Search(string value){
     if (value == this->LastName){
         return true;
         }
+
+
     if(value < this->LastName){
         if(left != NULL){
             return(left->Search(value));
@@ -50,6 +49,8 @@ bool BNode::Search(string value){
             return false;
         }
     }
+
+
     if(value > this->LastName){
         if(right != NULL){
             return(right->Search(value));

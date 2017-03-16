@@ -128,20 +128,63 @@ void BSTree::Delete(BNode *root, string target){
 /*------------------------------------------------------------------
 finds a given element in the tree
 
-Preconditions: none.
-Postconditions: none
+Preconditions: pass in a last name.
+Postconditions: returns true or false whether the name is in tree
 ------------------------------------------------------------------*/
-bool BSTree::Search(string value){
-      if (root == NULL){
-            return false;
-      }
-      else
-            return (root->Search(value));
+bool BSTree::Search(string target){
+    BNode *temp = root;
 
+    while(temp!=NULL){
+        if(temp->LastName==target){
+            break;
+        }
+
+        if(target>temp->LastName){
+            temp = temp->right;
+        }
+
+        if(target<temp->LastName){
+            temp = temp->left;
+        }
+    }
+
+    if(temp==NULL){
+        return false;
+    }
+
+    if(temp->LastName==target){
+        return true;
+    }
 }
 
+/*------------------------------------------------------------------
+finds a given element in the tree. will return null pointer if element
+is not in tree
 
+Preconditions: pass in a last name.
+Postconditions: returns pointer to node searched for. may return null
+if target is not in tree.
+------------------------------------------------------------------*/
+BNode* BSTree::BNodeSearch(string target){
 
+    BNode *temp = root;
+
+    while(temp!=NULL){
+        if(temp->LastName==target){
+            break;
+        }
+
+        if(target>temp->LastName){
+            temp = temp->right;
+        }
+
+        if(target<temp->LastName){
+            temp = temp->left;
+        }
+    }
+
+    return temp;
+}
 
 
 
