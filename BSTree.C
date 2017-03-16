@@ -119,19 +119,77 @@ Non-Lazy delete    -   based on 3 base cases
 Preconditions: none.
 Postconditions: none
 ------------------------------------------------------------------*/
-void BSTree::Delete(string target){
-
-    BNode *node = BNodeSearch(target);
+void BSTree::Delete(BNode *node){
 
     if(node == NULL){
         return;
     }
 
+    //leaf case
     if(node->left == NULL && node->right == NULL){
+
+        if(node->parent -> left == node){
+            node->parent->left = NULL;
+        }
+
+        if(node->parent->right == node){
+            node->parent->right = NULL;
+        }
         delete node;
         return;
     }
 
+    //case 2, only one child
+    if(node->left == NULL || node->right == NULL){
+        if(node->left == NULL){
+            node->right->parent = node -> parent;
+
+            if(node==node->parent->left){
+            node->parent->left = node -> right;
+            }
+
+            else{
+                node->parent->right = node->right;
+            }
+        }
+        if(node->right == NULL){
+            node->left->parent = node -> parent;
+            
+            if(node==node->parent->left){
+            node->parent->left = node -> left;
+            }
+            else{
+                node->parent->right = node->left;
+            }
+        }
+    }
+
+    //case 3, node has 2 children
+    else{
+        BNode *temp = Successor(node);
+        Delete(Successor(node));
+
+
+        temp -> parent = node -> parent;
+        temp -> left = node -> left;
+        // temp -> right  = node -> right;
+
+        node->left->parent = temp;
+        node-> right -> parent = temp;
+
+        if(node==node->parent->left){
+            node -> parent -> left = temp;
+        }
+
+        else{
+            node -> parent -> right = temp;
+        }
+
+        
+
+    }
+
+    delete node;
 }
 
 /*------------------------------------------------------------------

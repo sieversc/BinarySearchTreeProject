@@ -111,7 +111,7 @@ class BSTree {
     Preconditions: none.
     Postconditions: none
     ------------------------------------------------------------------*/
-    void Delete(string target);
+    void Delete(BNode *node);
 
     /*--------------------------------------------------------------
     Adds a single person to the BSTree
