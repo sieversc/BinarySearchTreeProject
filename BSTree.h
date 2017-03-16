@@ -17,6 +17,7 @@ class BNode {
         set<string> FirstName;
         BNode *left;
         BNode *right;
+        BNode *parent;
 
         BNode();
 
@@ -110,7 +111,7 @@ class BSTree {
     Preconditions: none.
     Postconditions: none
     ------------------------------------------------------------------*/
-    void Delete(BNode *root, string target);
+    void Delete(string target);
 
     /*--------------------------------------------------------------
     Adds a single person to the BSTree

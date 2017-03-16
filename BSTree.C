@@ -54,18 +54,22 @@ void BSTree::Insert(BNode *node, string name){
     if(node->LastName > name){
         if(node->left != NULL){
             Insert(node->left, name);
+            delete newNode;
         }
         else{
+            newNode->parent = node;
             node->left = newNode;
             BSTreeSize++;
-            return;
+
         }
     }
     else{
         if(node->right != NULL){
             Insert(node->right, name);
+            delete newNode;
         }
         else{
+            newNode->parent = node;
             node->right = newNode;
             BSTreeSize++;
         }
@@ -115,14 +119,19 @@ Non-Lazy delete    -   based on 3 base cases
 Preconditions: none.
 Postconditions: none
 ------------------------------------------------------------------*/
-void BSTree::Delete(BNode *root, string target){
+void BSTree::Delete(string target){
 
-    if(root == NULL){
+    BNode *node = BNodeSearch(target);
+
+    if(node == NULL){
         return;
     }
-    else{
-        
+
+    if(node->left == NULL && node->right == NULL){
+        delete node;
+        return;
     }
+
 }
 
 /*------------------------------------------------------------------
