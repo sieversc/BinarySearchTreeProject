@@ -48,7 +48,7 @@ int main(){
 
 	// cout << list->BNodeSearch("z")->LastName << endl;
 
-	list -> Delete(list->BNodeSearch("e"));
+	list -> Delete(list->BNodeSearch("c"));
 
 	list -> PrintInOrder(list->root);
 

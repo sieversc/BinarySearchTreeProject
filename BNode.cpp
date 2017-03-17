@@ -16,19 +16,10 @@ BNode::BNode(){
 }
 
 BNode::~BNode(){
-	/*
-    string LastName = NULL;
-    string FirstName = NULL;
-    BNode *left = NULL;
-    BNode *right = NULL;
-*/
-}
-
-string BNode::GetLastName(){
-
-	return(LastName);
 
 }
+
+
 
 void BNode::PrintName(){
     cout << LastName << endl;
@@ -61,4 +52,30 @@ bool BNode::Search(string value){
     }
 
     return false;
+}
+
+/********************************************
+------------------Accessors------------------
+*********************************************/
+
+string BNode::GetLastName(){
+
+    return(LastName);
+}
+
+set<string> GetFirstName(){
+
+    //return(FirstName);
+}
+
+BNode *GetLeft(){
+
+}
+
+BNode *GetRight(){
+
+}
+
+BNode *GetParent(){
+
 }
