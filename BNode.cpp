@@ -54,6 +54,11 @@ bool BNode::Search(string value){
     return false;
 }
 
+void BNode::SetLastName(string data){
+	LastName = data;
+}
+
+
 /********************************************
 ------------------Accessors------------------
 *********************************************/

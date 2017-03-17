@@ -31,17 +31,17 @@ class BNode {
     ****************************************/
         string GetLastName();
         set<string> GetFirstName();
-        BNode *GetLeft();
-        BNode *GetRight();
-        BNode *GetParent();
+        // BNode *GetLeft();
+        // BNode *GetRight();
+        // BNode *GetParent();
         void PrintName();       //prints lastname
 
     /**************************************
     ------------------Mutators-------------
     ****************************************/
-        void SetLeft(BNode *node);
-        void SetRight(BNode *node);
-        void SetParent(BNode *node);
+        // void SetLeft(BNode *node);
+        // void SetRight(BNode *node);
+        // void SetParent(BNode *node);
         void SetLastName(string name);
         void SetFirstName(set<string> names);
     private:
@@ -109,8 +109,6 @@ class BSTree {
     if target is not in tree.
     ------------------------------------------------------------------*/
     BNode* BNodeSearch(string target);
-
-
 
 
 

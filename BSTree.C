@@ -162,34 +162,17 @@ void BSTree::Delete(BNode *node){
                 node->parent->right = node->left;
             }
         }
+
+        delete node;
     }
 
     //case 3, node has 2 children
     else{
-        BNode *temp = Successor(node);
-        Delete(Successor(node));
-
-
-        temp -> parent = node -> parent;
-        temp -> left = node -> left;
-        // temp -> right  = node -> right;
-
-        node->left->parent = temp;
-        node-> right -> parent = temp;
-
-        if(node==node->parent->left){
-            node -> parent -> left = temp;
-        }
-
-        else{
-            node -> parent -> right = temp;
-        }
-
+        BNode *temp =  Successor(node);
+        node -> SetLastName(temp -> GetLastName());
         
-
+        Delete(temp);
     }
-
-    delete node;
 }
 
 /*------------------------------------------------------------------
@@ -283,7 +266,7 @@ Postconditions: none
 ------------------------------------------------------------------*/
 BNode* BSTree::Successor(BNode *node){
 
-    return(FindMin(node)); 
+    return(FindMin(node->right)); 
 }
 
 /*------------------------------------------------------------------

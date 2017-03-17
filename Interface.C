@@ -40,7 +40,7 @@ int main(){
 
 	list -> Insert(list->root, "f");
 
-	// list -> Insert(list->root, "z");
+	list -> Insert(list->root, "g");
 
 
 
@@ -48,7 +48,7 @@ int main(){
 
 	// cout << list->BNodeSearch("z")->LastName << endl;
 
-	list -> Delete(list->BNodeSearch("c"));
+	list -> Delete(list->BNodeSearch("e"));
 
 	list -> PrintInOrder(list->root);
 
