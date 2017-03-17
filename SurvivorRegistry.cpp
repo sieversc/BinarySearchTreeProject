@@ -12,8 +12,13 @@ SurvivorRegistry::~SurvivorRegistry(){
 }
 
 
-void SurvivorRegistry::Add(string name){
-	survivors->Insert(survivors->root, name);
+void SurvivorRegistry::Add(string LastName, string FirstName){
+	if(!survivors->Search(LastName)){
+
+		survivors->Insert(survivors->root, LastName);
+	}
+	BNode* temp = survivors->BNodeSearch(LastName);
+	temp -> AddFirstName(FirstName);
 }
 
 void SurvivorRegistry::Remove(string name){

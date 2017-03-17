@@ -10,7 +10,7 @@ using namespace std;
 
 
 BNode::BNode(){
-
+	int count = 0;
 
 
 }
@@ -58,7 +58,15 @@ void BNode::SetLastName(string data){
 	LastName = data;
 }
 
+void BNode::AddFirstName(string name){
+	FirstNames.insert(name);
+	count++;
+}
 
+void BNode::RemoveFirstName(string name){
+	FirstNames.erase(name);
+	count--;
+}
 /********************************************
 ------------------Accessors------------------
 *********************************************/
@@ -68,19 +76,6 @@ string BNode::GetLastName(){
     return(LastName);
 }
 
-set<string> GetFirstName(){
-
-    //return(FirstName);
-}
-
-BNode *GetLeft(){
-
-}
-
-BNode *GetRight(){
-
-}
-
-BNode *GetParent(){
-
+void BNode::PrintFirstNames(){
+	
 }

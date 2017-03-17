@@ -13,12 +13,23 @@ using namespace std;
 // Definition of a BSTree node.
 class BNode {
     public:
+        /*
+            *LastName stores family name
+            *FirstNames stores a list of first names in family
+            *left is left child pointer
+            *right is right child pointer
+            *parent is parent pointer
+            *count records the number of family members
+        */
         string LastName;
-        set<string> FirstName;
+        set<string> FirstNames;
+        int count;
+
         BNode *left;
         BNode *right;
         BNode *parent;
 
+        //constructor and destructor
         BNode();
 
         ~BNode();
@@ -31,19 +42,16 @@ class BNode {
     ****************************************/
         string GetLastName();
         set<string> GetFirstName();
-        // BNode *GetLeft();
-        // BNode *GetRight();
-        // BNode *GetParent();
         void PrintName();       //prints lastname
-
+        void PrintFirstNames();
     /**************************************
     ------------------Mutators-------------
     ****************************************/
-        // void SetLeft(BNode *node);
-        // void SetRight(BNode *node);
-        // void SetParent(BNode *node);
         void SetLastName(string name);
-        void SetFirstName(set<string> names);
+
+        void AddFirstName(string name);
+
+        void RemoveFirstName(string name);
     private:
 };
 
@@ -59,7 +67,7 @@ class BSTree {
 
     /*--------------------------------------------------------------
     The default BSTree constructor provides the caller with an 
-    	initially empty BSTree.  (IsEmpty == TRUE).
+    	initially empty BSTree.
     --------------------------------------------------------------*/
     BSTree ();
     
@@ -117,14 +125,15 @@ class BSTree {
         1. node passed in is a leaf
         2. node passed in has only one child
         3. node passed in has 2 children
-    Preconditions: none.
-    Postconditions: none
+    Preconditions: pass in node to be deleted.
+    Postconditions: node is deleted. BSTree structure is preserved in all
+    3 cases above. 
     ------------------------------------------------------------------*/
     void Delete(BNode *node);
 
     /*--------------------------------------------------------------
-    Adds a single person to the BSTree
-    preconditions: none
+    Adds a single node to the BSTree
+    preconditions: pass in the root of the tree and the name to be added
     Postconditions: BSTreeSise++
     --------------------------------------------------------------*/
     void Insert(BNode *node, string name);   
@@ -173,8 +182,8 @@ class SurvivorRegistry{
 
 	    ~SurvivorRegistry();
 
-		void Add(string Name);
-	    void Remove(string Name);
+		void Add(string Name, string FirstName);
+	    void Remove(string LastName);
 	    void PrintSurvivors();
         void Count();
 
