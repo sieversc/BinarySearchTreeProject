@@ -41,7 +41,7 @@ Postconditions: BSTreeSize++
 ------------------------------------------------------------------*/
 void BSTree::Insert(BNode *node, string name){
 
-    BNode *newNode = new BNode;
+    BNode *newNode = new BNode();
     newNode->LastName = name;
 
     //if tree is empty
@@ -92,8 +92,9 @@ void BSTree::PrintInOrder(BNode *node){
      PrintInOrder(node->left);
  
      /* then print the data of node */
-     cout << node->LastName << endl;  
- 
+     cout << node->LastName << ":   ";
+     node->PrintFirstNames();
+     cout << endl;
      /* now recur on right child */
      PrintInOrder(node->right);
 }
@@ -182,28 +183,13 @@ Preconditions: pass in a last name.
 Postconditions: returns true or false whether the name is in tree
 ------------------------------------------------------------------*/
 bool BSTree::Search(string target){
-    BNode *temp = root;
 
-    while(temp!=NULL){
-        if(temp->LastName==target){
-            break;
-        }
-
-        if(target>temp->LastName){
-            temp = temp->right;
-        }
-
-        if(target<temp->LastName){
-            temp = temp->left;
-        }
-    }
-
-    if(temp==NULL){
+    if(root == NULL){
         return false;
     }
 
-    if(temp->LastName==target){
-        return true;
+    else{
+        return root->Search(target);
     }
 }
 

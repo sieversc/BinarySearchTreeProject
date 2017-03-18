@@ -176,16 +176,20 @@ class SurvivorRegistry{
 
 	public:
 
+
+        int count;
 		BSTree *survivors;
 
 	    SurvivorRegistry();
 
 	    ~SurvivorRegistry();
 
-		void Add(string Name, string FirstName);
-	    void Remove(string LastName);
+		void Add(string lName, string fName);
+	    void Remove(string lName);
 	    void PrintSurvivors();
         void Count();
+        void Search(string lname);
+        void Search (string lName, string fName);
 
     private:    
 };

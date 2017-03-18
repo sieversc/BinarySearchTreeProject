@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <string>
 #include <set>
+#include <iterator>
 
 using namespace std;
 
@@ -77,5 +78,13 @@ string BNode::GetLastName(){
 }
 
 void BNode::PrintFirstNames(){
-	
+	set<string>::iterator iter;
+	string name;
+
+	cout << "	{  ";
+	for(iter=FirstNames.begin(); iter!=FirstNames.end(); ++iter){
+		cout << (*iter) << "  ";
+	}
+
+	cout << "}"	<< endl;
 }
