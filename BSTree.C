@@ -11,30 +11,30 @@
 
 // ----------------------Public Functions-----------------------------
 
-    //----------------------Constructor/Destructor-----------------------------
-        /*------------------------------------------------------------------
-        The default BSTree constructor.
+//----------------------Constructor/Destructor-----------------------------
+    /*------------------------------------------------------------------
+    The default BSTree constructor.
 
-        Preconditions: none.
-        Postconditions: BSTreeSize = 0 root is NULL
-        ------------------------------------------------------------------*/
-        BSTree::BSTree () {
-            BSTreeSize = 0;
-            root = NULL;
-        }
+    Preconditions: none.
+    Postconditions: BSTreeSize = 0 root is NULL
+    ------------------------------------------------------------------*/
+    BSTree::BSTree () {
+        BSTreeSize = 0;
+        root = NULL;
+    }
 
-        /*------------------------------------------------------------------
-        The default BSTree destructor.
+    /*------------------------------------------------------------------
+    The default BSTree destructor.
 
-        Preconditions: none.
-        Postconditions: BSTreeSize = 0; root = NULL
-        ------------------------------------------------------------------*/
-        BSTree::~BSTree () {
+    Preconditions: none.
+    Postconditions: BSTreeSize = 0; root = NULL
+    ------------------------------------------------------------------*/
+    BSTree::~BSTree () {
 
-            Clear(root);
-        }
+        Clear(root);
+    }
 
-    //-------------------------Basic operations---------------------------------
+//-------------------------Basic operations---------------------------------
     /*------------------------------------------------------------------
     adds a new element to the BSTree
 
@@ -153,96 +153,6 @@
         }
     }
 
-    //--------------------------accessor methods------------------------------
-
-
-        /*------------------------------------------------------------------
-        Prints the BSTree in order. least to greatest. Calls printFirstNames()
-        in BNode class. In format of:
-            LastName:       {   firstName   }
-
-        Preconditions: pass in root of tree.
-        Postconditions: none
-        ------------------------------------------------------------------*/
-        void BSTree::PrintInOrder(BNode *node){
-            if (node == NULL){
-                //cout << "Tree is Empty" << endl;
-                return;
-            }
-         
-             /* first recur on left child */
-             PrintInOrder(node->left);
-         
-             /* then print the data of node */
-             cout << node->LastName << ":   ";
-             node->PrintFirstNames();
-             cout << endl;
-             /* now recur on right child */
-             PrintInOrder(node->right);
-        }
-
-
-
-        /*------------------------------------------------------------------
-        Returns an integer equal to the number of nodes in the tree
-
-        Preconditions: none.
-        Postconditions: none
-        ------------------------------------------------------------------*/
-        int BSTree::Count(){
-
-            return(BSTreeSize);
-        }
-
-
-
-
-
-    //------------------Searches-------------------------
-
-        /*------------------------------------------------------------------
-        finds a given element in the tree
-
-        Preconditions: pass in a last name.
-        Postconditions: returns true or false whether the name is in tree
-        ------------------------------------------------------------------*/
-        bool BSTree::Search(string target){
-
-            if(root == NULL){
-                return false;
-            }
-
-            else{
-                return root->Search(target);
-            }
-        }
-
-        /*------------------------------------------------------------------
-        finds a given element in the tree. will return null pointer if element
-        is not in tree
-
-        Preconditions: pass in a last name and root of tree.
-        Postconditions: returns pointer to node searched for. may return null
-        if target is not in tree.
-        ------------------------------------------------------------------*/
-        BNode* BSTree::BSearch(string value, BNode *node){
-            if(node!=NULL){
-                if(value == node->LastName){
-                    return node;
-                }
-                if(value < node->LastName){
-                    return(BSearch(value, node->left));
-                }
-                if(value > node->LastName){
-                    return(BSearch(value, node->right));
-                }
-            }
-            else{
-                return NULL;
-            }
-        }
-
-
     /*------------------------------------------------------------------
     clears the tree of all nodes
 
@@ -259,6 +169,94 @@
         delete n;
         n = NULL;
     }
+
+//--------------------------accessor methods------------------------------
+
+
+    /*------------------------------------------------------------------
+    Prints the BSTree in order. least to greatest. Calls printFirstNames()
+    in BNode class. In format of:
+        LastName:       {   firstName   }
+
+    Preconditions: pass in root of tree.
+    Postconditions: none
+    ------------------------------------------------------------------*/
+    void BSTree::PrintInOrder(BNode *node){
+        if (node == NULL){
+            //cout << "Tree is Empty" << endl;
+            return;
+        }
+     
+         /* first recur on left child */
+         PrintInOrder(node->left);
+     
+         /* then print the data of node */
+         cout << node->LastName << ":   ";
+         node->PrintFirstNames();
+         cout << endl;
+         /* now recur on right child */
+         PrintInOrder(node->right);
+    }
+
+
+
+    /*------------------------------------------------------------------
+    Returns an integer equal to the number of nodes in the tree
+
+    Preconditions: none.
+    Postconditions: none
+    ------------------------------------------------------------------*/
+    int BSTree::Count(){
+
+        return(BSTreeSize);
+    }
+
+//------------------------------Searches---------------------------------
+
+    /*------------------------------------------------------------------
+    finds a given element in the tree
+
+    Preconditions: pass in a last name.
+    Postconditions: returns true or false whether the name is in tree
+    ------------------------------------------------------------------*/
+    bool BSTree::Search(string target){
+
+        if(root == NULL){
+            return false;
+        }
+
+        else{
+            return root->Search(target);
+        }
+    }
+
+    /*------------------------------------------------------------------
+    finds a given element in the tree. will return null pointer if element
+    is not in tree
+
+    Preconditions: pass in a last name and root of tree.
+    Postconditions: returns pointer to node searched for. may return null
+    if target is not in tree.
+    ------------------------------------------------------------------*/
+    BNode* BSTree::BSearch(string value, BNode *node){
+        if(node!=NULL){
+            if(value == node->LastName){
+                return node;
+            }
+            if(value < node->LastName){
+                return(BSearch(value, node->left));
+            }
+            if(value > node->LastName){
+                return(BSearch(value, node->right));
+            }
+        }
+        else{
+            return NULL;
+        }
+    }
+
+
+
 
 //----------------------Private Functions-----------------------------
 

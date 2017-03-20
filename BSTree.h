@@ -22,8 +22,7 @@ class BSTree {
     BNode *root;
 
 
-    // Constructors & destructors
-
+//----------------------Constructor/Destructor-----------------------------
     /*--------------------------------------------------------------
     The default BSTree constructor provides the caller with an 
     	initially empty BSTree.
@@ -36,29 +35,58 @@ class BSTree {
     --------------------------------------------------------------*/
     ~BSTree ();
 
+//-------------------------Basic Operations----------------------------
 
-    //--------------------------accessor methods------------------------------
+    /*------------------------------------------------------------------
+    Non-Lazy delete    -   based on 3 base cases
+        1. node passed in is a leaf
+        2. node passed in has only one child
+        3. node passed in has 2 children
+    Preconditions: pass in node to be deleted.
+    Postconditions: node is deleted. BSTree structure is preserved in all
+    3 cases above. 
+    ------------------------------------------------------------------*/
+    void Delete(BNode *node);
+
+    /*--------------------------------------------------------------
+    Adds a single node to the BSTree
+    preconditions: pass in the root of the tree and the name to be added
+    Postconditions: BSTreeSise++
+    --------------------------------------------------------------*/
+    void Insert(BNode *node, string name);   
+
+    /*------------------------------------------------------------------
+    clears the tree of all nodes
+
+    Preconditions: none.
+    Postconditions: deletes all nodes in tree. BSTreeSize = 0
+    ------------------------------------------------------------------*/
+    void Clear(BNode *n);							   
+
+//--------------------------accessor methods------------------------------
 
 
-        /*------------------------------------------------------------------
-        Prints the BSTree in order. least to greatest. calls printfirstnames() in 
-        BNode class
+    /*------------------------------------------------------------------
+    Prints the BSTree in order. least to greatest. Calls printFirstNames()
+    in BNode class. In format of:
+        LastName:       {   firstName   }
 
-        Preconditions: pass in the root node
-        Postconditions: prints the first and last names of each node in the tree
-        ------------------------------------------------------------------*/
-        void PrintInOrder(BNode *node);
+    Preconditions: pass in root of tree.
+    Postconditions: none
+    ------------------------------------------------------------------*/
+    void PrintInOrder(BNode *node);
 
 
-        /*------------------------------------------------------------------
-        Returns an integer equal to the number of nodes in the tree
+    /*------------------------------------------------------------------
+    Returns an integer equal to the number of nodes in the tree
 
-        Preconditions: none.
-        Postconditions: returns an integer that represents the number of nodes
-        in the tree
-        ------------------------------------------------------------------*/
-        int Count();
+    Preconditions: none.
+    Postconditions: returns an integer that represents the number of nodes
+    in the tree
+    ------------------------------------------------------------------*/
+    int Count();      
 
+//---------------------------Searches----------------------------
     /*------------------------------------------------------------------
     searches the tree for any last name
 
@@ -81,74 +109,45 @@ class BSTree {
     ------------------------------------------------------------------*/
     BNode* BSearch(string target, BNode *node);
 
+private:
+// Object instance data
 
+int BSTreeSize;
+
+
+//---------------helper functions---------------------
 
     /*------------------------------------------------------------------
-    Non-Lazy delete    -   based on 3 base cases
-        1. node passed in is a leaf
-        2. node passed in has only one child
-        3. node passed in has 2 children
-    Preconditions: pass in node to be deleted.
-    Postconditions: node is deleted. BSTree structure is preserved in all
-    3 cases above. 
-    ------------------------------------------------------------------*/
-    void Delete(BNode *node);
+    pass in a node and this function will find the smallest node greater than it
 
-    /*--------------------------------------------------------------
-    Adds a single node to the BSTree
-    preconditions: pass in the root of the tree and the name to be added
-    Postconditions: BSTreeSise++
-    --------------------------------------------------------------*/
-    void Insert(BNode *node, string name);   
-    
+    Preconditions: pass in node
+    Postconditions: returns BNode pointer
+    ------------------------------------------------------------------*/
+    BNode* Successor(BNode *node);
+
     /*------------------------------------------------------------------
-    clears the tree of all nodes
+    pass in a node and this function will find the greatest node smaller than it
 
-    Preconditions: none.
-    Postconditions: deletes all nodes in tree. BSTreeSize = 0
+    Preconditions: pass in node pointer
+    Postconditions: returns node pointer
     ------------------------------------------------------------------*/
-    void Clear(BNode *n);							   
-  
+    BNode* Predecessor(BNode *node);
 
-  private:
-    // Object instance data
+    /*------------------------------------------------------------------
+    pass in a node and this function will find the greatest node in the tree
 
-    int BSTreeSize;
+    Preconditions: pass in node pointer
+    Postconditions: returns node pointer
+    ------------------------------------------------------------------*/
+    BNode* FindMax(BNode *node);
 
+    /*------------------------------------------------------------------
+    pass in a node and this function will find the smallest node in the tree
 
-    //---------------helper functions---------------------
-    
-        /*------------------------------------------------------------------
-        pass in a node and this function will find the smallest node greater than it
-
-        Preconditions: pass in node
-        Postconditions: returns BNode pointer
-        ------------------------------------------------------------------*/
-        BNode* Successor(BNode *node);
-
-        /*------------------------------------------------------------------
-        pass in a node and this function will find the greatest node smaller than it
-
-        Preconditions: pass in node pointer
-        Postconditions: returns node pointer
-        ------------------------------------------------------------------*/
-        BNode* Predecessor(BNode *node);
-
-        /*------------------------------------------------------------------
-        pass in a node and this function will find the greatest node in the tree
-
-        Preconditions: pass in node pointer
-        Postconditions: returns node pointer
-        ------------------------------------------------------------------*/
-        BNode* FindMax(BNode *node);
-
-        /*------------------------------------------------------------------
-        pass in a node and this function will find the smallest node in the tree
-
-        Preconditions: pass in node pointer
-        Postconditions: returns node pointer
-        ------------------------------------------------------------------*/
-        BNode* FindMin(BNode *node);
+    Preconditions: pass in node pointer
+    Postconditions: returns node pointer
+    ------------------------------------------------------------------*/
+    BNode* FindMin(BNode *node);
 };
 
 
