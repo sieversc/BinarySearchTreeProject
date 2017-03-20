@@ -2,8 +2,11 @@
 Written by Chris Sievers
 ********************/
 
+#include <fstream>
 #include <iostream>
 #include "BSTree.h"
+#include "BNode.h"
+#include "SurvivorRegistry.h"
 
 using namespace std;
 
@@ -16,41 +19,29 @@ int main(){
 
 	SurvivorRegistry *reg = new SurvivorRegistry();
 
-	// reg->Add("J","j");
+	//-----------------file IO ---------------------
 
-	// reg->Add("F", "f");
+		// ifstream myInputFile;
+		// myInputFile.open("names.txt");
 
-	// reg->Add("A", "a");
+		// myInputFile >> lName >> fName;
+		// while(!myInputFile.eof()){
+		// 	reg -> Add(lName, fName);
+		// 	myInputFile >> lName >> fName;
+		// }
 
-	// reg->Add("B", "b");
-
-	// reg->Add("T", "t");
-
-	// reg->Add("S", "s");
-
-	// reg->Add("Z", "z");
-
-	// reg -> Count();
-
-	// reg->PrintSurvivors();
-
-	// reg->Remove("J", "j");
-
-	// reg->PrintSurvivors();
-
-	// 	reg -> Count();
-
-	// reg->Search("T");
-
+		// myInputFile.close();
 
 
 	cout << "\nEnter Action:" << endl; 
 	cout << " 0: Add\n 1: Remove\n 2: Print\n 3: Count\n 4: Search\n 5: Quit";
 	cout << endl << ">";
 	cin >> response;
+	cout << endl;
 
 	while(response != QUIT){
 		switch(response){
+			
 			case ADD:
 				cout << "Enter Name:" << endl;
 
@@ -62,6 +53,7 @@ int main(){
 				reg->Add(lName, fName);
 
 				break;
+			
 			case REMOVE:
 				cout << "Enter Name: " << endl;
 
@@ -100,6 +92,8 @@ int main(){
 	cout << " 0: Add\n 1: Remove\n 2: Print\n 3: Count\n 4: Search\n 5: Quit";
 	cout << endl << ">";
 	cin >> response;
+	cout << endl;
+
 	}
 
 

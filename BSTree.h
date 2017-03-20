@@ -5,119 +5,14 @@
 Written by Chris Sievers 
 ------------------------------------------------------------------*/
 
+#include "BNode.h"
 #include <string>
 #include <iostream>
 #include <set>
 using namespace std;
 
 // Definition of a BSTree node.
-class BNode {
-    public:
-    /*
-        *LastName stores family name
-        *FirstNames stores a list of first names in family
-        *left is left child pointer
-        *right is right child pointer
-        *parent is parent pointer
-        *count records the number of family members
-    */
-    string LastName;
-    set<string> FirstNames;
-    int count;
 
-    BNode *left;
-    BNode *right;
-    BNode *parent;
-
-    //constructor and destructor
-    BNode();
-
-    ~BNode();
-
-    bool Search(string target);
-
-    bool Search(string target, BNode *node);
-
-    BNode* BSearch(string target, BNode *node);
-
-
-/**************************************
-------------------Accessors-------------
-****************************************/
-
-    /*------------------------------------------------------------------
-    accessor returns the last name field in BNode class
-
-    Preconditions: nonde
-    Postconditions: returns string lastname
-    ------------------------------------------------------------------*/       
-    string GetLastName();
-
-    /*------------------------------------------------------------------
-    accessor returns the first name field in BNode class
-
-    Preconditions: nonde
-    Postconditions: returns set first name
-    ------------------------------------------------------------------*/
-    set<string> GetFirstName();
-
-
-    /*------------------------------------------------------------------
-    prints lastname
-
-    Preconditions: nonde
-    Postconditions: prints last name.
-    ------------------------------------------------------------------*/    
-    void PrintName();       
-
-
-    /*------------------------------------------------------------------
-    prints all first names in set
-
-    Preconditions: nonde
-    Postconditions: none
-    ------------------------------------------------------------------*/    
-    void PrintFirstNames();
-
-
-/**************************************
-------------------Mutators-------------
-****************************************/
-
-    /*------------------------------------------------------------------
-    mutator changes last name field in BNode class
-
-    Preconditions: pass in desired name
-    Postconditions: new last name
-    ------------------------------------------------------------------*/
-    void SetLastName(string name);
-
-
-    /*------------------------------------------------------------------
-    mutator replaces first name field
-
-    Preconditions: pass in set of strings
-    Postconditions: none
-    ------------------------------------------------------------------*/
-    void SetFirstName(set<string> names);
-
-    /*------------------------------------------------------------------
-    mutator adds a name to the first name set in BNode
-
-    Preconditions: pass in string
-    Postconditions: length of first name set ++
-    ------------------------------------------------------------------*/
-    void AddFirstName(string name);
-
-    /*------------------------------------------------------------------
-    mutator removes a name from the first name set in BNode class
-
-    Preconditions: pass in name to be removed
-    Postconditions: length of first name set --
-    ------------------------------------------------------------------*/
-    void RemoveFirstName(string name);
-    private:
-};
 
 
 class BSTree {
@@ -142,27 +37,27 @@ class BSTree {
     ~BSTree ();
 
 
-//--------------------------accessor methods------------------------------
+    //--------------------------accessor methods------------------------------
 
 
-    /*------------------------------------------------------------------
-    Prints the BSTree in order. least to greatest. calls printfirstnames() in 
-    BNode class
+        /*------------------------------------------------------------------
+        Prints the BSTree in order. least to greatest. calls printfirstnames() in 
+        BNode class
 
-    Preconditions: pass in the root node
-    Postconditions: prints the first and last names of each node in the tree
-    ------------------------------------------------------------------*/
-    void PrintInOrder(BNode *node);
+        Preconditions: pass in the root node
+        Postconditions: prints the first and last names of each node in the tree
+        ------------------------------------------------------------------*/
+        void PrintInOrder(BNode *node);
 
 
-    /*------------------------------------------------------------------
-    Returns an integer equal to the number of nodes in the tree
+        /*------------------------------------------------------------------
+        Returns an integer equal to the number of nodes in the tree
 
-    Preconditions: none.
-    Postconditions: returns an integer that represents the number of nodes
-    in the tree
-    ------------------------------------------------------------------*/
-    int Count();
+        Preconditions: none.
+        Postconditions: returns an integer that represents the number of nodes
+        in the tree
+        ------------------------------------------------------------------*/
+        int Count();
 
     /*------------------------------------------------------------------
     searches the tree for any last name
@@ -221,64 +116,40 @@ class BSTree {
     int BSTreeSize;
 
 
-    //helper functions
+    //---------------helper functions---------------------
+    
+        /*------------------------------------------------------------------
+        pass in a node and this function will find the smallest node greater than it
 
+        Preconditions: pass in node
+        Postconditions: returns BNode pointer
+        ------------------------------------------------------------------*/
+        BNode* Successor(BNode *node);
 
-    /*------------------------------------------------------------------
-    pass in a node and this function will find the smallest node greater than it
+        /*------------------------------------------------------------------
+        pass in a node and this function will find the greatest node smaller than it
 
-    Preconditions: pass in node
-    Postconditions: returns BNode pointer
-    ------------------------------------------------------------------*/
-    BNode* Successor(BNode *node);
+        Preconditions: pass in node pointer
+        Postconditions: returns node pointer
+        ------------------------------------------------------------------*/
+        BNode* Predecessor(BNode *node);
 
-    /*------------------------------------------------------------------
-    pass in a node and this function will find the greatest node smaller than it
+        /*------------------------------------------------------------------
+        pass in a node and this function will find the greatest node in the tree
 
-    Preconditions: pass in node pointer
-    Postconditions: returns node pointer
-    ------------------------------------------------------------------*/
-    BNode* Predecessor(BNode *node);
+        Preconditions: pass in node pointer
+        Postconditions: returns node pointer
+        ------------------------------------------------------------------*/
+        BNode* FindMax(BNode *node);
 
-    /*------------------------------------------------------------------
-    pass in a node and this function will find the greatest node in the tree
+        /*------------------------------------------------------------------
+        pass in a node and this function will find the smallest node in the tree
 
-    Preconditions: pass in node pointer
-    Postconditions: returns node pointer
-    ------------------------------------------------------------------*/
-    BNode* FindMax(BNode *node);
-
-    /*------------------------------------------------------------------
-    pass in a node and this function will find the smallest node in the tree
-
-    Preconditions: pass in node pointer
-    Postconditions: returns node pointer
-    ------------------------------------------------------------------*/
-    BNode* FindMin(BNode *node);
+        Preconditions: pass in node pointer
+        Postconditions: returns node pointer
+        ------------------------------------------------------------------*/
+        BNode* FindMin(BNode *node);
 };
 
-
-//SurvivorRegistry description
-class SurvivorRegistry{
-
-	public:
-
-
-        int count;
-		BSTree *survivors;
-
-	    SurvivorRegistry();
-
-	    ~SurvivorRegistry();
-
-		void Add(string lName, string fName);
-	    void Remove(string lName, string fName);
-	    void PrintSurvivors();
-        void Count();
-        void Search(string lname);
-        void Search (string lName, string fName);
-
-    private:    
-};
 
 #endif
