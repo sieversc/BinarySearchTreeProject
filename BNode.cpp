@@ -11,21 +11,24 @@ using namespace std;
 
 
 BNode::BNode(){
+
 	int count = 0;
-
-
 }
 
 BNode::~BNode(){
-
 }
 
 
 
 void BNode::PrintName(){
+
     cout << LastName << endl;
 }
 
+
+/******************************************
+------------------Searches---------------------
+*******************************************/
 bool BNode::Search(string value){
 
     if (value == this->LastName){
@@ -55,8 +58,66 @@ bool BNode::Search(string value){
     return false;
 }
 
+bool BNode::Search(string value, BNode *node){
+
+	if (value == this->LastName){
+		node = this;
+        return true;
+    }
+
+
+    if(value < this->LastName){
+        if(left != NULL){
+            return(left->Search(value, node));
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    if(value > this->LastName){
+        if(right != NULL){
+            return(right->Search(value, node));
+        }
+        else{
+            return false;
+        }
+    }
+
+    return false;
+}
+
+BNode* BNode::BSearch(string value, BNode *node){
+
+    if(node==NULL){
+        if(value == node->LastName){
+            return node;
+        }
+        if(value < node->LastName){
+            return(BSearch(value, node->left));
+        }
+        if(value > node->LastName){
+            return(BSearch(value, node->right));
+        }
+    }
+    else{
+        return NULL;
+    }
+}
+
+/******************************************
+--------------------Mutators-----------------
+******************************************/
+
 void BNode::SetLastName(string data){
+
 	LastName = data;
+}
+
+void BNode::SetFirstName(set<string> names){
+    
+    FirstNames = names;
 }
 
 void BNode::AddFirstName(string name){
@@ -68,6 +129,8 @@ void BNode::RemoveFirstName(string name){
 	FirstNames.erase(name);
 	count--;
 }
+
+
 /********************************************
 ------------------Accessors------------------
 *********************************************/
@@ -75,6 +138,11 @@ void BNode::RemoveFirstName(string name){
 string BNode::GetLastName(){
 
     return(LastName);
+}
+
+set<string> BNode::GetFirstName(){
+
+    return(FirstNames);
 }
 
 void BNode::PrintFirstNames(){
@@ -88,3 +156,4 @@ void BNode::PrintFirstNames(){
 
 	cout << "}"	<< endl;
 }
+
