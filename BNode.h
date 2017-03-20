@@ -12,38 +12,58 @@ Written by Chris Sievers
 using namespace std;
 
 class BNode {
+   
     public:
-    /*
-        *LastName stores family name
-        *FirstNames stores a list of first names in family
-        *left is left child pointer
-        *right is right child pointer
-        *parent is parent pointer
-        *count records the number of family members
-    */
-    string LastName;
-    set<string> FirstNames;
-    int count;
+   
+    string LastName;    //stores family name
+    set<string> FirstNames; //stores a list of first names in family
+    int count;          //records the number of family members
 
-    BNode *left;
-    BNode *right;
-    BNode *parent;
+    BNode *left;    //left child
+    BNode *right;   //right child
+    BNode *parent;  //parent pointer
 
-    //constructor and destructor
+/*------------------------------------------------------------------
+The default BNode constructor.
+
+Preconditions: none.
+Postconditions: initiates count variable
+------------------------------------------------------------------*/
     BNode();
 
+
+
+/*------------------------------------------------------------------
+The default BNode destructor.
+
+Preconditions: none.
+Postconditions: none
+------------------------------------------------------------------*/
     ~BNode();
 
+//---------------------Searches--------------------
+
+    /*------------------------------------------------------------------
+    Search method looks through entire tree for a given name. returns
+    true if found, false if not
+
+    Preconditions: pass in last name string.
+    Postconditions: returns boolean
+    ------------------------------------------------------------------*/
     bool Search(string target);
 
-    bool Search(string target, BNode *node);
+    /*------------------------------------------------------------------
+    Search method looks through entire tree for a given name. returns
+    true if found, false if not
 
+    Preconditions: pass in last name string and root of tree.
+    Postconditions: pointer to BNode of target. may return NULL
+    ------------------------------------------------------------------*/
     BNode* BSearch(string target, BNode *node);
 
 
-/**************************************
-------------------Accessors-------------
-****************************************/
+//---------------------Accessors--------------------
+
 
     /*------------------------------------------------------------------
     accessor returns the last name field in BNode class
@@ -61,14 +81,15 @@ class BNode {
     ------------------------------------------------------------------*/
     set<string> GetFirstName();
 
+//--------------------Print Methods--------------------
 
     /*------------------------------------------------------------------
-    prints lastname
+    prints Last name of a given node1
 
-    Preconditions: nonde
-    Postconditions: prints last name.
-    ------------------------------------------------------------------*/    
-    void PrintName();       
+    Preconditions: none
+    Postconditions: none
+    ------------------------------------------------------------------*/  
+    void PrintName();
 
 
     /*------------------------------------------------------------------
@@ -80,9 +101,7 @@ class BNode {
     void PrintFirstNames();
 
 
-/**************************************
-------------------Mutators-------------
-****************************************/
+//---------------------Mutators--------------------
 
     /*------------------------------------------------------------------
     mutator changes last name field in BNode class
@@ -116,6 +135,8 @@ class BNode {
     Postconditions: length of first name set --
     ------------------------------------------------------------------*/
     void RemoveFirstName(string name);
+    
+
     private:
 };
 
