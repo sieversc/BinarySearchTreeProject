@@ -95,6 +95,7 @@ void SurvivorRegistry::PrintSurvivors(){
 	}
 }
 
+
 /*------------------------------------------------------------------
 prints the number of survivors currently registered. accessor
 

@@ -96,28 +96,35 @@
         if(node->left == NULL && node->right == NULL){
 
             if(node == root){
-
                 root = NULL;
                 BSTreeSize--;
                 return;
             }
 
             if(node->parent -> left == node){
-
                 node->parent->left = NULL;
             }
 
             if(node->parent->right == node){
-
                 node->parent->right = NULL;
             }
 
             delete node;
             return;
         }
-
         //case 2, only one child
         if(node->left == NULL || node->right == NULL){
+
+            if(node == root){
+                if(node->left==NULL){
+                    root = node->right;
+                }
+                if(node->right == NULL){
+                    root = node -> left;
+                }
+                BSTreeSize--;
+                return;
+            }
             if(node->left == NULL){
                 node->right->parent = node -> parent;
 

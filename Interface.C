@@ -21,16 +21,16 @@ int main(){
 
 	//-----------------file IO ---------------------
 
-		// ifstream myInputFile;
-		// myInputFile.open("names.txt");
+		ifstream myInputFile;
+		myInputFile.open("names.txt");
 
-		// myInputFile >> lName >> fName;
-		// while(!myInputFile.eof()){
-		// 	reg -> Add(lName, fName);
-		// 	myInputFile >> lName >> fName;
-		// }
+		myInputFile >> lName >> fName;
+		while(!myInputFile.eof()){
+			reg -> Add(lName, fName);
+			myInputFile >> lName >> fName;
+		}
 
-		// myInputFile.close();
+		myInputFile.close();
 
 
 	cout << "\nEnter Action:" << endl; 
